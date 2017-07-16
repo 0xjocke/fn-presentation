@@ -1,5 +1,5 @@
-let addCount = 0;
-const add = (num, num2) => {
-  addCount++;
-  return num + num2;
-};
+let addCount = 0
+const add = (num1, num2) => {
+  addCount++
+  return num1 + num2
+}
