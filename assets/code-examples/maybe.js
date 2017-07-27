@@ -1,18 +1,44 @@
-import Maybe from 'somewhere'
-import R from 'ramda'
-const transformNum = compose(
-  pow(2),
-  minus(1),
-  double
+const { Maybe } = require('monet')
+const R = require('ramda')
+
+const list = [
+  { name: 'Small multiples' },
+  { name: 'Google' },
+]
+//String -> Maybe String
+const getCompany = name =>
+  Maybe.fromNull(
+    list.find(x => x.name === name)
+  )
+
+const SMU = getCompany(
+  'Small multiples'
+)
+const FB = getCompany('facebook')
+
+FB.map(R.prop('name')).map(R.toUpper)
+//Maybe.None()
+
+SMU.map(R.prop('name')).map(R.toUpper)
+// Maybe.Just('SMALL MULTIPLES)
+
+const upperName = R.compose(
+  R.toUpper,
+  R.prop('name')
 )
 
-const getNumber = () =>
-  Math.random() === 0.5
-    ? Maybe.nothing
-    : Maybe.just(5)
+R.map(upperName, SMU)
+// Maybe.Just('SMALL MULTIPLES')
 
-const getTransformNum = compose(
-  R.map,
-  getNumber
+R.map(upperName, FB)
+//Maybe.None()
+
+R.map(upperName, SMU).orSome(
+  'No company found'
 )
-const transformNum = getTransformNum()
+// 'SMALL MULTIPLES'
+
+R.map(upperName, FB).orSome(
+  'No company found'
+)
+// 'No company found'

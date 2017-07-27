@@ -1,6 +1,8 @@
-import Maybe from 'somewhere'
+const { Maybe } = require('monet')
 
-const myMaybe = Maybe(2)
-//If we want to tranform the value inside the maube we call map
-// We call something else if we want to unwrap in.
-myMaybe.map(num => num)
+Maybe.Some(2)
+Maybe.None()
+
+const myMaybe = Maybe.of(2)
+myMaybe.map(num => num * 2)
+// Maybe.Some(4)
