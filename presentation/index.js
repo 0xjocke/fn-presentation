@@ -216,8 +216,9 @@ export default class Presentation extends React.Component {
         >
           <List>
             <ListItem>
-              Same input =>{' '}
-              <b>always </b> same output
+              Same input =>
+              <b> always </b> same
+              output
             </ListItem>
             <ListItem>
               No side effects
@@ -257,6 +258,40 @@ export default class Presentation extends React.Component {
               Testable
             </ListItem>
           </List>
+        </Slide>
+        <Slide
+          transition={['fade']}
+          bgColor="tertiary"
+        >
+          <Heading
+            style={{
+              textDecoration:
+                'line-through',
+            }}
+            size={6}
+            textColor="primary"
+          >
+            Pure function
+          </Heading>
+          <Heading
+            size={1}
+            textColor="primary"
+          >
+            Immutability
+          </Heading>
+          <Heading
+            size={6}
+            textColor="primary"
+          >
+            Currying, Data Last &
+            Compose
+          </Heading>
+          <Heading
+            size={6}
+            textColor="primary"
+          >
+            Algebraic Data Types
+          </Heading>
         </Slide>
         <Slide
           notes={
@@ -521,6 +556,44 @@ export default class Presentation extends React.Component {
           >
             TODO Maybe talk about JS
             immutable array updates
+          </Heading>
+        </Slide>
+                <Slide
+          transition={['fade']}
+          bgColor="tertiary"
+        >
+          <Heading
+            style={{
+              textDecoration:
+                'line-through',
+            }}
+            size={6}
+            textColor="primary"
+          >
+            Pure function
+          </Heading>
+          <Heading
+            size={6}
+            style={{
+              textDecoration:
+                'line-through',
+            }}
+            textColor="primary"
+          >
+            Immutability
+          </Heading>
+          <Heading
+            size={2}
+            textColor="primary"
+          >
+            Currying, Data Last &
+            Compose
+          </Heading>
+          <Heading
+            size={6}
+            textColor="primary"
+          >
+            Algebraic Data Types
           </Heading>
         </Slide>
         {CurryDataLastCompose()}

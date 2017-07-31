@@ -11,6 +11,6 @@ const company3 = Object.assign(
   company,
   { name: 'Di Bella' }
 )
-console.log(company1.name) // Small Multiples
-console.log(company2.name) // Di Bella
-console.log(company3.name) // Di Bella
+company1.name // Small Multiples
+company2.name // Di Bella
+company3.name // Di Bella

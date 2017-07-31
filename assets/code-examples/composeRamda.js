@@ -1,13 +1,16 @@
 import {
   map,
   filter,
-  sum
-} from 'lodash/fp'
+  sum,
+} from 'ramda'
 
 const numbers = [1, 2, 3]
 
-const transformNum =
-  compose(pow(2), minus(1), double)
+const transformNum = compose(
+  pow(2),
+  minus(1),
+  double
+)
 
 const isOdd = n => n % 2 !== 0
 

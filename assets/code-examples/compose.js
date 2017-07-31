@@ -3,15 +3,22 @@ const transformNum = x =>
 
 transformNum(10) // 361
 
-const transformNum =
-  compose(pow(2), minus(1), double)
+const transformNum = compose(
+  pow(2),
+  minus(1),
+  double
+)
 
 transformNum(10) // 361
 
-const doubleThenMinusOne =
-  compose(minus(1), double)
+const doubleThenMinusOne = compose(
+  minus(1),
+  double
+)
 
-const transformNum =
-  compose(pow(2), doubleThenMinusOne)
+const transformNum = compose(
+  pow(2),
+  doubleThenMinusOne
+)
 
 transformNum(10) // 361

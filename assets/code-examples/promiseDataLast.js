@@ -1,20 +1,21 @@
-const curry = require('curry')
-const getNumber = () => Promise.resolve(1)
+const {curry} = require('ramda')
+const getNumber = () =>
+  Promise.resolve(1)
 
 const doubleNumberIfNeeded = curry(
-    (shouldDouble, number) =>
-        shouldDouble ? num * 2 : num
+  (shouldDouble, num) =>
+    shouldDouble ? num * 2 : num
 )
 
 const turnNumberIntoObject = curry(
-    (key, number) =>
-        ({[key]: number })
+  (key, number) => ({ [key]: number })
 )
 
-const doubleNumberAtKey = (key) =>
-    getNumber()
-        .then(doubleNumberIfNeeded(true))
-        .then(turnNumberIntoObject(key))
-
-doubleNumberAtKey('doubledNumber')
+getNumber()
+  .then(doubleNumberIfNeeded(true))
+  .then(
+    turnNumberIntoObject(
+      'doubledNumber'
+    )
+  )
 // {doubledNumber: 2}

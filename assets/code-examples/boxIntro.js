@@ -6,4 +6,4 @@ myBox.map(R.multiply(2)) // Box(4)
 R.map(R.multiply(2), myBox) // Box(4)
 
 const helloBox = Box('Hello World')
-map(R.toUpper, helloBox) // HELLO WORLD
+R.map(R.toUpper, helloBox) // HELLO WORLD

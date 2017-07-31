@@ -24,7 +24,7 @@ const updatedBook = R.set(
 )
 
 R.view(ratingLens, book) // 5
-R.view(ratingLens, updatedBook) // 6
+R.view(ratingLens, updatedBook) // 1
 
 R.view(ratingLens, {}) // undefined
 R.view(ratingLens, undefined) // undefined

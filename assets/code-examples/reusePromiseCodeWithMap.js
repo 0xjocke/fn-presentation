@@ -1,4 +1,8 @@
-const getNumbers = () => ([1,2,3])
+const getNumbers = () => [1, 2, 3]
 getNumbers()
-    .map(doubleNumberIfNeeded(true))
-    .map(turnNumberIntoObject('doubledNumber'))
+  .map(doubleNumberIfNeeded(true))
+  .map(
+    turnNumberIntoObject(
+      'doubledNumber'
+    )
+  )
