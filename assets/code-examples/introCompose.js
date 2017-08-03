@@ -18,14 +18,6 @@ const transformNum = num => {
 
 transformNum(10) // 361
 
-const transformNum = num => {
-  let num = double(num)
-  num = minus(1, num)
-  return pow(2, num)
-}
-
-transformNum(10) // 361
-
 const transformNum = num =>
   pow(2, minus(1, double(num)))
 

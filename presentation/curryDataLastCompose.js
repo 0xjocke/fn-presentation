@@ -67,6 +67,7 @@ export default () => [
           so that the arg most likely to change is last.
         </li>
         <li>Most cases data.</li>
+        <li>To show how we can combine curry and data last, lets look at some code.</li>
       </ul>
     }
     transition={['fade']}
@@ -221,16 +222,9 @@ export default () => [
           numDoubledMinusOneToThePowerOfTwo?
         </li>
         <li>
-          Might be fine in this case,
-          but will confusing in other
-          cases. Might be an example of
-          readable nut not
-          understandable.
-        </li>
-        <li>
           We can call manually and pass
           a long the result. It doesn't
-          look to bad.
+          look to bad. But lots of parenthesis.
         </li>
       </ul>
     }
@@ -250,12 +244,7 @@ export default () => [
           'How can we put these together?',
       },
       { loc: [18, 19] },
-      {
-        loc: [20, 25],
-        note: 'White lies?',
-      },
-      { loc: [26, 27] },
-      { loc: [28, 33], note: '' },
+      { loc: [20, 25] },
     ]}
   />,
   <Slide
