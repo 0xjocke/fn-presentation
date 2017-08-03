@@ -1,14 +1,14 @@
 const { Maybe } = require('monet')
 const R = require('ramda')
 
-const list = [
+const companies = [
   { name: 'Small multiples' },
   { name: 'Google' },
 ]
 //String -> Maybe String
 const getCompany = name =>
   Maybe.fromNull(
-    list.find(x => x.name === name)
+    companies.find(x => x.name === name)
   )
 
 const SMU = getCompany(

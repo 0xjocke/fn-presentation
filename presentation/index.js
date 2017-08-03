@@ -433,11 +433,15 @@ export default class Presentation extends React.Component {
         <Slide
           notes={
             <ul>
-              <li>Normalize data structure</li>
+              <li>
+                Normalize data structure
+              </li>
               <li>Use a library</li>
-              <li>All good, different tradeoffs</li>
+              <li>
+                All good, different
+                tradeoffs
+              </li>
             </ul>
-
           }
           transition={['fade']}
           bgColor="tertiary"
@@ -817,11 +821,6 @@ export default class Presentation extends React.Component {
           notes={
             <ul>
               <li>
-                Still using monet and
-                now we want ramda for
-                some utility fn as well
-              </li>
-              <li>
                 In these examples we
                 gonna use a list of
                 companies to play around
@@ -835,10 +834,9 @@ export default class Presentation extends React.Component {
                 name
               </li>
               <li>
-                But instead of returning
-                the result of find
-                directly, we're using
-                Maybe.fromNull
+                Instead of returning
+                result of find we're
+                using Maybe.fromNull
               </li>
               <li>
                 This means that or
@@ -991,11 +989,6 @@ export default class Presentation extends React.Component {
           notes={
             <ul>
               <li>
-                Lets look at a use case
-                for Either. We import
-                Either and ramda.
-              </li>
-              <li>
                 Then the first thing we
                 gonna do is to create a
                 parseJson fn. This will
@@ -1016,27 +1009,16 @@ export default class Presentation extends React.Component {
                 upperName fn
               </li>
               <li>
-                First we call our
-                parseJson with the valid
-                json string
-              </li>
-              <li>
-                Then we map over it
+                Call parseJSON and map
                 upperName
               </li>
               <li>
-                And finally instead if
-                calling isRight or
-                isLeft we're using
-                Eithers cata method
-              </li>
-              <li>
-                cata takes two
-                functions, the one to
-                the left will be called
-                if there's an error and
-                the one to the right on
-                success.
+                Finally: Cata, cata
+                takes two functions, the
+                one to the left will be
+                called if there's an
+                error and the one to the
+                right on success.
               </li>
               <li>
                 In this case since the
@@ -1109,94 +1091,49 @@ export default class Presentation extends React.Component {
           notes={
             <ul>
               <li>
-                A Futures is just like
-                promises an async
+                A Future is just like a
+                Promise an async
                 abstraction
               </li>
               <li>
-                The Futures library we
-                gonna use for my
-                examples is called
-                Flutures. It offers some
-                improvement over
-                promises. at least IMO
-              </li>
-              <li>
-                The main difference is
-                that Futures is lazy.
+                Main difference, Futures
+                lazy. When create a
+                Futures nothing happens.
                 When you create a
-                Futures nothing will
-                happen. wheras when you
-                create a promises is
-                fires off directly. A
-                Futures represent the
+                promises it fires off
+                directly. A Future
+                represent the
                 computation and a
                 promise the result of
-                that computation. To
-                start the Futures we
-                call fork on it. More
-                examples in next slide.
-                But this make our
-                application more pure.
-                The function creating
-                the Futures will always
-                return the same thing.
-                And the outside caller
-                is responsible for
-                firing off side effects.
+                that computation.
               </li>
               <li>
-                Promises doesn't
-                separate expected
-                failures from unexpected
-                ones. If we have a Type
-                error or A failed
+                Make app more pure. The
+                function will always
+                return the same thing.
+                Outside caller firing
+                off side effects.
+              </li>
+              <li>
+                Type error and failed
                 network request they
                 both gonna end up in the
                 .catch. Futures does not
                 catch type error and
                 other unexpected errors.
                 An expected error such
-                as 404 or no connection
-                will end up in the
-                failure branch But a
-                unexpected error such as
-                a type error will not be
-                caught, instead the
-                application will crash
-                giving you a better dev
-                experience or letting
-                the application restart.
-                This is good since its
-                hard impossible to
-                recover from an
-                unexpected error. When
-                using promises catching
-                failures is optionally.
-                But a you cant fork a
-                futures without a
-                handling an expected
-                failure.
+                as 404 will end up in
+                the failure branch.
               </li>
+
               <li>
                 It also doesn't
                 automatically flatten.
-                With promises its
-                impossible to have a
+                Impossible to have a
                 promises holding a
-                promise. It will always
-                resolve the inner
-                promise automatically.
-                And even tho this might
-                be the wanted behavior
-                most of the time its
-                removes some use cases,
-                and also harder to type
-                correctly. With Futures
-                you can get this
-                behavior if you want but
-                you are not locked in to
-                it.
+                promise, inner resolve
+                automatically. Often ok
+                but hard to type.
               </li>
             </ul>
           }
@@ -1239,66 +1176,37 @@ export default class Presentation extends React.Component {
           notes={
             <ul>
               <li>
-                We gonna use a library
-                Fluture. There are a few
-                others. But since
-                fluture have good
-                documentation and is
-                stable I picked that
-                one. We also import
-                axios for fetching and
-                Ramda.
-              </li>
-              <li>
-                First thing we gonna do
-                is convert axios get
-                method with flutures
-                encaseP. encaseP takes a
-                function returning a
-                promise and return a
-                Future instead.
+                encaseP takes a function
+                returning a promise and
+                return a Future instead.
               </li>
               <li>
                 Create a URL constant
-                and a name lens. Our
-                goal is to get the first
-                name from github. and we
-                know that we can find it
-                under data name.
+                and a name lens. Goal
+                first name from github
               </li>
               <li>
                 We use our new axiosGet
                 function to make a GET
                 request to githubs url
               </li>
+              <li>.then -> .map</li>
               <li>
-                Instead of calling .then
-                we gonna .map on it just
-                like we're use too.
-              </li>
-              <li>
-                And right now nothing
-                has happen. its not
-                until we call fork that
-                the request will be
-                sent.
+                Nothing happen until
+                fork
               </li>
               <li>
                 Fork just like Either
                 takes first an error fn
-                and then a success fn.{' '}
+                and then a success fn.
               </li>
               <li>
-                The request was
-                successful and my first
-                name got logged.
+                The request successful
+                first name logged.
               </li>
               <li>
-                Just like we expect the
-                map never gets called
-                incase we have an error.
-                instead the error just
-                gets logged
+                .map never called.
+                console.error
               </li>
               <li>
                 On the otherhand if we
@@ -1314,21 +1222,10 @@ export default class Presentation extends React.Component {
                 prod.
               </li>
               <li>
-                I also said that nested
-                Futures doesn't resolve
-                automatically, so if we
-                have a pipeline creating
-                nested promises we can
-                use a method called
-                chain. This is also
-                known as flatMap or
-                bind. Its just like
-                calling map and then
-                flatten. This method is
-                also available for Maybe
-                and Either if you have
-                operations created
-                nested Maybes.
+                Cant have a nested
+                promise. Hard to type.
+                Sometimes you might want
+                that.
               </li>
             </ul>
           }
