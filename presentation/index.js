@@ -36,7 +36,6 @@ const images = {
 }
 
 const codeExamples = {
-  imPureFunction: require('../assets/code-examples/impure-function'),
   mutation: require('../assets/code-examples/mutation'),
   objectSpread: require('../assets/code-examples/objectSpread'),
   spreadNestedStructure: require('../assets/code-examples/spreadNestedStructure'),
@@ -73,6 +72,15 @@ export default class Presentation extends React.Component {
         <Slide
           transition={['zoom']}
           bgColor="primary"
+          notes={
+            <p>
+              Some of the concepts will
+              probably be familiar to
+              you already but hopefully
+              I say something
+              interesting for everybody.
+            </p>
+          }
         >
           <Heading
             fit
@@ -97,6 +105,16 @@ export default class Presentation extends React.Component {
         <Slide
           transition={['fade']}
           bgColor="tertiary"
+          notes={
+            <p>
+              Our main goal when writing
+              in a functional style, is
+              to have small pieces and
+              put them together and hope
+              that together they form an
+              application.
+            </p>
+          }
         >
           <Heading
             size={6}
@@ -114,8 +132,8 @@ export default class Presentation extends React.Component {
         <Slide
           notes={
             <p>
-              Some goals in order of
-              importance
+              But lets define some more
+              clear goals
             </p>
           }
           transition={['fade']}
@@ -177,7 +195,7 @@ export default class Presentation extends React.Component {
             textColor="secondary"
             caps
           >
-            Things I aim to cover
+            Stuff I plan to talk about.
           </Heading>
           <List>
             <ListItem>
@@ -191,14 +209,24 @@ export default class Presentation extends React.Component {
               Compose
             </ListItem>
             <ListItem>
-              Algebraic Data Type
+              Algebraic Data Types
             </ListItem>
           </List>
         </Slide>
         <Slide
           transition={['fade']}
-          bgColor="secondary"
           textColor="primary"
+          bgColor="tertiary"
+          notes={
+            <p>
+              A pure function is a
+              function that when called
+              with the same input always
+              return the same output. It
+              should also not have any
+              side effects.
+            </p>
+          }
         >
           <Heading
             fit
@@ -207,12 +235,6 @@ export default class Presentation extends React.Component {
           >
             Pure functions
           </Heading>
-        </Slide>
-        <Slide
-          transition={['fade']}
-          textColor="primary"
-          bgColor="tertiary"
-        >
           <List>
             <ListItem>
               Same input =>
@@ -224,21 +246,32 @@ export default class Presentation extends React.Component {
             </ListItem>
           </List>
         </Slide>
-        <CodeSlide
-          lang="js"
-          code={
-            codeExamples.imPureFunction
-          }
-          ranges={[
-            {
-              loc: [0, 10],
-              title: 'Side effects',
-            },
-          ]}
-        />
         <Slide
           transition={['fade']}
           bgColor="tertiary"
+          notes={
+            <ul>
+              <li>
+                Benefits of writing with
+                a style that favours
+                pure functions is that
+                you get more trust
+                confidence.
+              </li>
+              <li>
+                You know what the
+                functions return and you
+                know that it wont cause
+                any problems.
+              </li>
+              <li>
+                Its also easy to compose
+                these function, which we
+                gonna see more about
+                later in this talk.
+              </li>
+            </ul>
+          }
         >
           <Heading
             size={1}
@@ -264,14 +297,15 @@ export default class Presentation extends React.Component {
           notes={
             <ul>
               <li>
-                Immutability is also
-                quite popular. Not when
-                I something is popular
-                its is heavily based on
-                my won experiences. We
-                all live in bubbles and
-                my react/redux bubble
-                might differ from yours.
+                Immutability is just
+                like pure functions a
+                fairly popular concept.
+                Especially in the react
+                redux bubble that I find
+                myself in. Anyway when
+                something is immutable
+                it means it cant be
+                changed.
               </li>
               <li>
                 Anyway, when something
@@ -340,34 +374,21 @@ export default class Presentation extends React.Component {
         </Slide>
         <CodeSlide
           lang="js"
-          code={codeExamples.mutation}
-          ranges={[
-            { loc: [0, 4] },
-            {
-              loc: [4, 5],
-              note:
-                'We want another company!',
-            },
-            {
-              loc: [4, 6],
-              note: `But with another name`,
-            },
-            {
-              loc: [6, 8],
-              title: '😱',
-            },
-          ]}
-        />
-        <CodeSlide
-          lang="js"
+          notes={
+            <ul>
+              <li>
+                Lets look at some code
+                examples to see how we
+                can make immutable
+                updates
+              </li>
+            </ul>
+          }
           code={
             codeExamples.objectSpread
           }
           ranges={[
-            {
-              loc: [0, 4],
-              note: 'Same deal!',
-            },
+            { loc: [0, 4] },
             {
               loc: [4, 8],
               note: 'Babel / Node 8 ',
@@ -411,7 +432,12 @@ export default class Presentation extends React.Component {
         />
         <Slide
           notes={
-            'all good, different tradeoffs'
+            <ul>
+              <li>Normalize data structure</li>
+              <li>Use a library</li>
+              <li>All good, different tradeoffs</li>
+            </ul>
+
           }
           transition={['fade']}
           bgColor="tertiary"

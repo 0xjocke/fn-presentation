@@ -63,14 +63,8 @@ export default () => [
     notes={
       <ul>
         <li>
-          Data last means that we flip
-          the args of the functions we
-          write.
-        </li>
-        <li>
-          Our goal is to have the
-          parameter that is less likely
-          to change last.
+          Data last means that we try to writw our function in a way
+          so that the arg most likely to change is last.
         </li>
         <li>Most cases data.</li>
       </ul>
@@ -147,7 +141,7 @@ export default () => [
         <li>
           Here we're using the same
           function but on an array
-          instead.{' '}
+          instead.
         </li>
         <li>
           This reuse is very valuable
@@ -155,13 +149,6 @@ export default () => [
           contains our business logic.
           And that it stuff that you
           dont want to duplicate.
-        </li>
-        <li>
-          Not because, we lazy and dont
-          want to type. But so that its
-          easy to change when the
-          requirements/ data of the app
-          changes.
         </li>
       </ul>
     }
