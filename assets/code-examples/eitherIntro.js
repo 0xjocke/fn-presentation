@@ -1,9 +1,9 @@
 const { Either } = require('monet')
 
-Either.Right() // Success
 Either.Left() // Failure
+Either.Right() // Success
 
 const eitherTest = fnReturningEither()
 
-eitherTest.isRight()
 eitherTest.isLeft()
+eitherTest.isRight()

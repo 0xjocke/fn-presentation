@@ -11,7 +11,7 @@ const transformNum = num => {
   const numDoubled = double(num)
   const numDoubledMinusOne = minus(
     1,
-    num
+    numDoubled
   )
   return pow(2, numDoubledMinusOne)
 }

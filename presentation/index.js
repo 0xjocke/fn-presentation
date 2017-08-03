@@ -41,7 +41,6 @@ const codeExamples = {
   objectSpread: require('../assets/code-examples/objectSpread'),
   spreadNestedStructure: require('../assets/code-examples/spreadNestedStructure'),
   lensIntro: require('../assets/code-examples/lensIntro'),
-  boxIntro: require('../assets/code-examples/boxIntro'),
   maybeIntro: require('../assets/code-examples/maybeIntro'),
   maybe: require('../assets/code-examples/maybe'),
   eitherIntro: require('../assets/code-examples/eitherIntro'),
@@ -262,6 +261,25 @@ export default class Presentation extends React.Component {
         <Slide
           transition={['fade']}
           bgColor="tertiary"
+          notes={
+            <ul>
+              <li>
+                Immutability is also
+                quite popular. Not when
+                I something is popular
+                its is heavily based on
+                my won experiences. We
+                all live in bubbles and
+                my react/redux bubble
+                might differ from yours.
+              </li>
+              <li>
+                Anyway, when something
+                is immutable it can’t be
+                changed
+              </li>
+            </ul>
+          }
         >
           <Heading
             style={{
@@ -291,38 +309,6 @@ export default class Presentation extends React.Component {
             textColor="primary"
           >
             Algebraic Data Types
-          </Heading>
-        </Slide>
-        <Slide
-          notes={
-            <ul>
-              <li>
-                Immutability is also
-                quite popular. Not when
-                I something is popular
-                its is heavily based on
-                my won experiences. We
-                all live in bubbles and
-                my react/redux bubble
-                might differ from yours.
-              </li>
-              <li>
-                Anyway, when something
-                is immutable it can’t be
-                changed
-              </li>
-            </ul>
-          }
-          transition={['fade']}
-          bgColor="secondary"
-          textColor="primary"
-        >
-          <Heading
-            fit
-            textColor="primary"
-            caps
-          >
-            immutability
           </Heading>
         </Slide>
         <Slide
@@ -551,18 +537,6 @@ export default class Presentation extends React.Component {
           bgColor="tertiary"
         >
           <Heading
-            size={1}
-            textColor="primary"
-          >
-            TODO Maybe talk about JS
-            immutable array updates
-          </Heading>
-        </Slide>
-                <Slide
-          transition={['fade']}
-          bgColor="tertiary"
-        >
-          <Heading
             style={{
               textDecoration:
                 'line-through',
@@ -598,29 +572,6 @@ export default class Presentation extends React.Component {
         </Slide>
         {CurryDataLastCompose()}
         <Slide
-          notes={
-            <ul>
-              <li>
-                Lets move on to compose.
-              </li>
-              <li>
-                So far we’ve seen that
-                both arrays and promises
-                gives us good
-                opportunities to
-                structure our programs
-                with small pure
-                functions.
-              </li>
-              <li>
-                But say we wanted to the
-                same thing on some other
-                value, that doesn't have
-                a `.map` or `.then`
-                method.
-              </li>
-            </ul>
-          }
           transition={['fade']}
           bgColor="tertiary"
         >
@@ -684,12 +635,6 @@ export default class Presentation extends React.Component {
                 reused business logic
                 for those.)
               </li>
-              <li>
-                Before we move on, I'll
-                give a warning for that
-                some of the stuff I say
-                might not be correct.
-              </li>
             </ul>
           }
           transition={['fade']}
@@ -725,33 +670,6 @@ export default class Presentation extends React.Component {
             src={images.adventure}
           />
         </Slide>
-        <CodeSlide
-          notes={
-            <ul>
-              <li>
-                Nothing to exiting
-              </li>
-              <li>
-                Basically another way to
-                let us use map of stuff
-                that doesn't have a map
-                function
-              </li>
-            </ul>
-          }
-          lang="js"
-          code={codeExamples.boxIntro}
-          ranges={[
-            {
-              loc: [0, 1],
-              title: '📦',
-            },
-            { loc: [0, 2] },
-            { loc: [2, 3] },
-            { loc: [2, 6] },
-            { loc: [7, 10] },
-          ]}
-        />
         <Slide
           notes={
             <ul>
@@ -936,11 +854,12 @@ export default class Presentation extends React.Component {
             { loc: [3, 7] },
             { loc: [7, 12] },
             { loc: [13, 17] },
-            { loc: [18, 23] },
-            { loc: [24, 28] },
-            { loc: [29, 34] },
-            { loc: [35, 39] },
-            { loc: [40, 44] },
+            { loc: [18, 22] },
+            { loc: [23, 27] },
+            { loc: [28, 32] },
+            { loc: [33, 38] },
+            { loc: [39, 44] },
+            { loc: [44, 50] },
           ]}
         />
         <Slide
@@ -1091,7 +1010,7 @@ export default class Presentation extends React.Component {
                 the left will be called
                 if there's an error and
                 the one to the right on
-                success{' '}
+                success.
               </li>
               <li>
                 In this case since the
@@ -1128,27 +1047,6 @@ export default class Presentation extends React.Component {
           ]}
         />
         <Slide
-          notes={
-            <ul>
-              <li>
-                Maybe is cool, but
-                sometimes annoying
-              </li>
-              <li>
-                Since None cant hold any
-                value its not good for
-                error handling
-              </li>
-              <li>
-                We wouldn't have any
-                error to display
-              </li>
-              <li>
-                And thats when Either
-                comes into play
-              </li>
-            </ul>
-          }
           transition={['fade']}
           bgColor="tertiary"
         >
@@ -1253,11 +1151,6 @@ export default class Presentation extends React.Component {
                 futures without a
                 handling an expected
                 failure.
-              </li>
-              <li>
-                Futures also gives us
-                the opportunity to
-                cancel a started Futures
               </li>
               <li>
                 It also doesn't
@@ -1422,15 +1315,13 @@ export default class Presentation extends React.Component {
             { loc: [4, 7] },
             { loc: [8, 10] },
             { loc: [11, 15] },
-            { loc: [16, 17] },
-            { loc: [17, 18] },
-            { loc: [18, 19] },
-            { loc: [16, 20] },
-            { loc: [21, 25] },
+            { loc: [16, 18] },
+            { loc: [19, 22] },
+            { loc: [23, 26] },
             { loc: [26, 31] },
-            { loc: [33, 37] },
-            { loc: [38, 45] },
-            { loc: [40, 41] },
+            { loc: [32, 37] },
+            { loc: [37, 45] },
+            { loc: [39, 40] },
           ]}
         />
 

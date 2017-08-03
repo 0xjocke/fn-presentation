@@ -20,21 +20,21 @@ const invalidJson =
 
 const upperName = R.compose(
   R.toUpper,
-  R.prop('name')
+  d => d.name
 )
 
 parseJson(json)
   .map(upperName)
   .cata(
-    err => console.error(err),
-    x => console.log(x)
+    console.error,
+    console.log
   )
 // SMALL MULTIPLES
 
 parseJson(invalidJson)
   .map(upperName)
   .cata(
-    err => console.error(err),
-    x => console.log('value: ', x)
+    console.error,
+    console.log
   )
 // SyntaxError: ...

@@ -14,26 +14,25 @@ const nameLens = R.lensPath([
   'name',
 ])
 
-axiosGet(url)
-  .map(R.view(nameLens))
+const getFirstName = url =>
+  axiosGet(url).map(R.view(nameLens))
+
+getFirstName(url)
   .fork(console.error, console.log)
 //Joachim
 
-axiosGet(url + 'mistake')
-  .map(R.view(nameLens))
+getFirstName(url + 'mistake')
   .fork(console.error, console.log)
 //Error: Request failed with status code 404
 
-axiosGet(url)
-  .map(R.view(nameLens))
+getFirstName(url)
   .map(x => x + y)
   .fork(console.error, console.log)
 //Throws: ReferenceError: y is not defined
 
-
 const avatarLens = R.lensPath([
   'data',
-  'avatar_url'
+  'avatar_url',
 ])
 
 axiosGet(url)

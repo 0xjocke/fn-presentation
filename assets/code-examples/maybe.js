@@ -16,19 +16,23 @@ const SMU = getCompany(
 )
 const FB = getCompany('facebook')
 
-FB.map(R.prop('name')).map(R.toUpper)
+FB
+  .map(x => x.name)
+  .map(R.toUpper)
 //Maybe.None()
 
-SMU.map(R.prop('name')).map(R.toUpper)
-// Maybe.Just('SMALL MULTIPLES)
+SMU
+  .map(d => d.name)
+  .map(R.toUpper)
+// Maybe.Some('SMALL MULTIPLES)
 
 const upperName = R.compose(
   R.toUpper,
-  R.prop('name')
+  d => d.name
 )
 
 R.map(upperName, SMU)
-// Maybe.Just('SMALL MULTIPLES')
+// Maybe.Some('SMALL MULTIPLES')
 
 R.map(upperName, FB)
 //Maybe.None()

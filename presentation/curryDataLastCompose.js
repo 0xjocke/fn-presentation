@@ -18,7 +18,6 @@ import CodeSlide from 'spectacle-code-slide'
 
 const codeExamples = {
   curry: require('../assets/code-examples/curry'),
-  dataLast: require('../assets/code-examples/dataLast'),
   promiseDataLast: require('../assets/code-examples/promiseDataLast'),
   reusePromiseCodeWithMap: require('../assets/code-examples/reusePromiseCodeWithMap'),
   introCompose: require('../assets/code-examples/introCompose'),
@@ -177,31 +176,6 @@ export default () => [
       },
     ]}
   />,
-  <CodeSlide
-    notes={
-      <ul>
-        <li>
-          Lodash have an api that builds
-          upon these concepts.
-        </li>
-        <li>
-          It has all the methods we love
-          and know <b>curried</b>
-        </li>
-        <li>
-          And taking <b>Data last</b>
-        </li>
-      </ul>
-    }
-    lang="js"
-    code={codeExamples.dataLast}
-    ranges={[
-      {
-        loc: [0, 6],
-        title: 'Data last with lodash',
-      },
-    ]}
-  />,
   <Slide
     notes={
       <ul>
@@ -281,17 +255,20 @@ export default () => [
         title:
           "Let's define some pure fns",
       },
-      { loc: [0, 8] },
+      { loc: [1, 5] },
+      { loc: [5, 8] },
       {
-        loc: [9, 16],
+        loc: [9, 17],
         note:
           'How can we put these together?',
       },
+      { loc: [18, 19] },
       {
-        loc: [17, 24],
+        loc: [20, 25],
         note: 'White lies?',
       },
-      { loc: [25, 31], note: '' },
+      { loc: [26, 27] },
+      { loc: [28, 33], note: '' },
     ]}
   />,
   <Slide
@@ -352,14 +329,14 @@ export default () => [
           </span>
         ),
       },
-      { loc: [5, 9] },
+      { loc: [5, 12] },
       {
-        loc: [10, 15],
+        loc: [13, 17],
         note:
           'We can group for reuse or optimizations',
       },
       {
-        loc: [12, 17],
+        loc: [18, 24],
       },
     ]}
   />,
@@ -386,14 +363,14 @@ export default () => [
       },
       { loc: [6, 7] },
       { loc: [8, 13] },
-      { loc: [11, 12] },
+      { loc: [14, 15] },
       {
-        loc: [6, 12],
+        loc: [16, 17],
         note:
           'Transform odd numbers and add then sum those',
       },
       {
-        loc: [13, 18],
+        loc: [16, 22],
       },
       {
         loc: [16, 17],
