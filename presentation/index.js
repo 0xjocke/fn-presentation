@@ -1269,21 +1269,6 @@ export default class Presentation extends React.Component {
                 Elm, Reason Purescript
                 or even Haskell
               </li>
-              <li>
-                And what I also forgot
-                to mention again is that
-                these data types isn't
-                made up. They are based
-                on Category Theory. So
-                they are gurantee that
-                they compose and follows
-                a lot of rules. This
-                means we can learn from
-                categroy theory and
-                apply it to Our async
-                code, our error handling
-                and our null checks.
-              </li>
             </ul>
           }
           transition={['fade']}
