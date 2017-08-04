@@ -604,6 +604,15 @@ export default class Presentation extends React.Component {
         <Slide
           transition={['fade']}
           bgColor="tertiary"
+          notes={
+            <ul>
+              <li>
+                The last part of my talk
+                will be about Algebraic
+                Data Types or ADT
+              </li>
+            </ul>
+          }
         >
           <Heading
             style={{
@@ -647,23 +656,22 @@ export default class Presentation extends React.Component {
           notes={
             <ul>
               <li>
-                final part boxes,
-                patterns/ structures to
-                write more small fns
+                I like to think about
+                ADT as boxes with a map
+                method.
               </li>
               <li>
-                Goal to work with boxes
-                as much as possible,
-                using map. That we we
-                can change behavior
-                without changing
-                business logic.
+                So one box that we're
+                all familiar with is
+                arrays. It works pretty
+                good for lists.
               </li>
               <li>
-                So far only promises and
-                array ( we saw how we
-                reused business logic
-                for those.)
+                And know I'm planning to
+                talk about some other
+                boxes that are good at
+                handling different
+                things than lists
               </li>
             </ul>
           }
@@ -673,32 +681,6 @@ export default class Presentation extends React.Component {
           <Heading textColor="primary">
             📦
           </Heading>
-        </Slide>
-        <Slide
-          notes={
-            <ul>
-              <li>
-                I'm still in the
-                beginning of my journey
-                into functional
-                programing.
-              </li>
-              <li>
-                Feel free to raise you
-                hand with corrections
-                that benefits us all
-              </li>
-            </ul>
-          }
-          transition={['fade']}
-          bgColor="secondary"
-          textColor="primary"
-        >
-          <Image
-            width={'100%'}
-            height={'100%'}
-            src={images.adventure}
-          />
         </Slide>
         <Slide
           notes={
