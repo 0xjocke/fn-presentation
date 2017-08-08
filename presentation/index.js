@@ -56,7 +56,7 @@ const theme = createTheme(
     quartenary: '#CECECE',
   },
   {
-    primary: 'Montserrat',
+    primary: 'Helvetica',
     secondary: 'Helvetica',
   }
 )
