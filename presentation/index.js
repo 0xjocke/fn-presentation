@@ -779,7 +779,7 @@ export default class Presentation extends React.Component {
                 `of` method and then we
                 use our loving map fn to
                 transform the value
-                inside.{' '}
+                inside.
               </li>
               <li>
                 And just like we're use
@@ -862,10 +862,9 @@ export default class Presentation extends React.Component {
             { loc: [13, 17] },
             { loc: [18, 22] },
             { loc: [23, 27] },
-            { loc: [28, 32] },
-            { loc: [33, 38] },
-            { loc: [39, 44] },
-            { loc: [44, 50] },
+            { loc: [28, 31] },
+            { loc: [32, 38] },
+            { loc: [39, 45] },
           ]}
         />
         <Slide

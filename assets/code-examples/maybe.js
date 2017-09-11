@@ -11,17 +11,12 @@ const getCompany = name =>
     companies.find(x => x.name === name)
   )
 
-const SMU = getCompany(
-  'Small multiples'
-)
-const FB = getCompany('facebook')
-
-FB
+getCompany('facebook')
   .map(x => x.name)
   .map(R.toUpper)
 //Maybe.None()
 
-SMU
+getCompany('Small multiples')
   .map(d => d.name)
   .map(R.toUpper)
 // Maybe.Some('SMALL MULTIPLES)
@@ -31,18 +26,20 @@ const upperName = R.compose(
   d => d.name
 )
 
-R.map(upperName, SMU)
+getCompany('Small multiples')
+  .map(upperName)
 // Maybe.Some('SMALL MULTIPLES')
 
-R.map(upperName, FB)
-//Maybe.None()
-
-R.map(upperName, SMU).orSome(
-  'No company found'
-)
+getCompany('Small multiples'))
+  .map(upperName)
+  .orSome(
+    'No company found'
+  )
 // 'SMALL MULTIPLES'
 
-R.map(upperName, FB).orSome(
-  'No company found'
-)
+getCompany('facebook')
+  .map(upperName)
+  .orSome(
+    'No company found'
+  )
 // 'No company found'
