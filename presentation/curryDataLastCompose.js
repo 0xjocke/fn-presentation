@@ -63,11 +63,17 @@ export default () => [
     notes={
       <ul>
         <li>
-          Data last means that we try to writw our function in a way
-          so that the arg most likely to change is last.
+          Data last means that we try to
+          writw our function in a way so
+          that the arg most likely to
+          change is last.
         </li>
         <li>Most cases data.</li>
-        <li>To show how we can combine curry and data last, lets look at some code.</li>
+        <li>
+          To show how we can combine
+          curry and data last, lets look
+          at some code.
+        </li>
       </ul>
     }
     transition={['fade']}
@@ -159,9 +165,14 @@ export default () => [
     }
     ranges={[
       {
-        loc: [0, 8],
+        loc: [0, 9],
         title: 'Reuse business logic',
       },
+      {
+        loc: [2, 4],
+        note: '.then -> .map',
+      },
+      { loc: [0, 9] },
     ]}
   />,
   <Slide
@@ -224,7 +235,8 @@ export default () => [
         <li>
           We can call manually and pass
           a long the result. It doesn't
-          look to bad. But lots of parenthesis.
+          look to bad. But lots of
+          parenthesis.
         </li>
       </ul>
     }
@@ -316,7 +328,7 @@ export default () => [
       },
     ]}
   />,
-  <CodeSlide
+  /*<CodeSlide
     notes={
       <ul>
         <li>
@@ -360,7 +372,6 @@ export default () => [
         loc: [14, 15],
         note: 'Partially apply map',
       },
-      { loc: [13, 20] },
     ]}
-  />,
+  />, */
 ]

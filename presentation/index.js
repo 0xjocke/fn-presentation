@@ -36,7 +36,6 @@ const images = {
 }
 
 const codeExamples = {
-  mutation: require('../assets/code-examples/mutation'),
   objectSpread: require('../assets/code-examples/objectSpread'),
   spreadNestedStructure: require('../assets/code-examples/spreadNestedStructure'),
   lensIntro: require('../assets/code-examples/lensIntro'),
@@ -302,10 +301,7 @@ export default class Presentation extends React.Component {
                 fairly popular concept.
                 Especially in the react
                 redux bubble that I find
-                myself in. Anyway when
-                something is immutable
-                it means it cant be
-                changed.
+                myself in.
               </li>
               <li>
                 Anyway, when something
@@ -862,9 +858,9 @@ export default class Presentation extends React.Component {
             { loc: [13, 17] },
             { loc: [18, 22] },
             { loc: [23, 27] },
-            { loc: [28, 31] },
-            { loc: [32, 38] },
-            { loc: [39, 45] },
+            { loc: [28, 32] },
+            { loc: [33, 37] },
+            { loc: [38, 43] },
           ]}
         />
         <Slide
@@ -1096,17 +1092,21 @@ export default class Presentation extends React.Component {
                 off side effects.
               </li>
               <li>
-                Type error and failed
-                network request they
-                both gonna end up in the
-                .catch. Futures does not
-                catch type error and
-                other unexpected errors.
-                An expected error such
-                as 404 will end up in
-                the failure branch.
+                Another way they differ
+                is how they treat
+                exceptions. Promises
+                doesn't seperate
+                unexpected and expected
+                error. The catch is
+                catching them both. A
+                fututres failure branch
+                is solely for expected
+                errors, if something
+                throws its not going to
+                be caught. Unless you
+                explicitly tells it to
+                do so.
               </li>
-
               <li>
                 It also doesn't
                 automatically flatten.
@@ -1162,51 +1162,91 @@ export default class Presentation extends React.Component {
                 return a Future instead.
               </li>
               <li>
-                Create a URL constant
-                and a name lens. Goal
-                first name from github
+                We use our new fetchF fn
+                to make a GET request to
+                githubs url
               </li>
               <li>
-                We use our new axiosGet
-                function to make a GET
-                request to githubs url
-              </li>
-              <li>.then -> .map</li>
-              <li>
-                Nothing happen until
-                fork
+                Just calling the fetchF
+                function would not do
+                anything. Do fire off
+                the future your have to
+                call fork
               </li>
               <li>
-                Fork just like Either
+                Fork, just like Either,
                 takes first an error fn
                 and then a success fn.
               </li>
               <li>
                 The request successful
-                first name logged.
+                We get a response object
+                back.
               </li>
               <li>
-                .map never called.
-                console.error
+                We also want to call
+                toJSON on the response.
+                to convert it to json.
+                toJson returns a promise
+                to we're using the
+                encaseP fn again.
               </li>
               <li>
-                On the otherhand if we
-                create a reference
-                error, that will not end
-                up in the failure
-                branch. Instead it will
-                throw making our
-                debugger stop or log log
-                out nice stacktraces in
-                dev. Or making our app
-                restart if we are in
-                prod.
+                But remember that
+                futures doesn't
+                automatically flattens
+                things. Returning a
+                Future inside a .map
+                would Give us nested
+                futures.
               </li>
               <li>
-                Cant have a nested
-                promise. Hard to type.
-                Sometimes you might want
-                that.
+                Chain comes to the
+                rescue. chain works just
+                like map but also
+                flattens. Which is why
+                it sometimes called
+                flatMap
+              </li>
+              <li>
+                If you've worked with
+                fetch you know that http
+                error will not be
+                treated like an error.
+                So lets create a helper
+                to reject the future is
+                the request fails.
+              </li>
+              <li>
+                When putting it together
+                we see that we have to
+                chain in a row. Remember
+                when we had to maps in a
+                row we could compose
+                those fn and call map
+                once.
+              </li>
+              <li>
+                Same is true for chain.
+                We just need a special
+                compose that can compose
+                fns returning boxes.
+                Luckily for us, ramda
+                has us covered.
+              </li>
+              <li>Still works.</li>
+              <li>
+                And if we get a 404 we
+                end up in the failure
+                branch
+              </li>
+              <li>
+                But if we really mess up
+                and cause a reference
+                error the app can crash
+                and give us a good dev
+                experience or give the
+                app a change to restart.
               </li>
             </ul>
           }
@@ -1216,16 +1256,21 @@ export default class Presentation extends React.Component {
               loc: [0, 3],
               title: 'Futures',
             },
-            { loc: [4, 7] },
-            { loc: [8, 10] },
-            { loc: [11, 15] },
-            { loc: [16, 18] },
-            { loc: [19, 22] },
-            { loc: [23, 26] },
-            { loc: [26, 31] },
-            { loc: [32, 37] },
-            { loc: [37, 45] },
-            { loc: [39, 40] },
+            { loc: [4, 5] },
+            { loc: [6, 8] },
+            { loc: [9, 14] },
+            { loc: [15, 19] },
+            { loc: [20, 24] },
+            { loc: [25, 29] },
+            { loc: [30, 37] },
+            { loc: [38, 43] },
+            {
+              loc: [44, 48],
+              note: 'Kleisli',
+            },
+            { loc: [49, 53] },
+            { loc: [54, 58] },
+            { loc: [59, 64] },
           ]}
         />
 
@@ -1233,22 +1278,28 @@ export default class Presentation extends React.Component {
           notes={
             <ul>
               <li>
-                And I think this is the
-                really cool part. When
-                you learn one of these
-                concets you cna use them
-                on different data types.
-                You dont have to learn
-                one api for arrays and
-                one for promises. And
-                even cooler that that.
-                Almost all fp languages
-                uses this structure. So
-                this knowlogde should
-                give you a head start if
-                you start looking at
-                Elm, Reason Purescript
-                or even Haskell
+                It might feel a litttle
+                annoying to learn this
+                api instead of just
+                using the promise api
+                that ju gotten use to.
+              </li>
+              <li>
+                But this api is more
+                ruthful imo and is as I
+                mentioned before based
+                on mathematics. Which is
+                why you will see this
+                same api in a lot of
+                other fn languages.
+              </li>
+              <li>
+                Which means that if you
+                want to start looking at
+                one new fucntional
+                lanuge you should have a
+                big head start knowing
+                these concetps.
               </li>
             </ul>
           }

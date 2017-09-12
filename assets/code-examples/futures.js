@@ -1,42 +1,64 @@
 const Future = require('fluture')
-const axios = require('axios')
+const fetch = require('node-fetch')
 const R = require('ramda')
 
-const axiosGet = Future.encaseP(
-  axios.get
-)
+const fetchF = Future.encaseP(fetch)
 
 const url =
   'https://api.github.com/users/bachstatter'
 
-const nameLens = R.lensPath([
-  'data',
-  'name',
-])
+fetchF(url).fork(
+  console.error,
+  console.log
+)
+// Response object from github
 
-const getFirstName = url =>
-  axiosGet(url).map(R.view(nameLens))
+// toJSON : Response -> Future a b
+const toJSON = Future.encaseP(res =>
+  res.json()
+)
 
-getFirstName(url)
+fetchF(url)
+  .map(toJSON)
   .fork(console.error, console.log)
-//Joachim
+// Future json
 
-getFirstName(url + 'mistake')
+fetchF(url)
+  .chain(toJSON)
+  .fork(console.error, console.log)
+// JSON
+
+// handleError : Response -> Future a b
+const handleError = res =>
+  res.ok
+    ? Future.of(res)
+    : Future.reject(
+        Error(res.statusText)
+      )
+
+fetchF(url)
+  .chain(toJSON)
+  .chain(handleError)
+  .fork(console.error, console.log)
+// JSON
+
+const handleRequest = R.composeK(
+  handleError,
+  toJSON
+)
+
+fetchF(url)
+  .chain(handleRequest)
+  .fork(console.error, console.log)
+// JSON
+
+fetchF(url + 'mistake')
+  .chain(handleRequest)
   .fork(console.error, console.log)
 //Error: Request failed with status code 404
 
-getFirstName(url)
+fetchF(url)
+  .chain(handleRequest)
   .map(x => x + y)
   .fork(console.error, console.log)
 //Throws: ReferenceError: y is not defined
-
-const avatarLens = R.lensPath([
-  'data',
-  'avatar_url',
-])
-
-axiosGet(url)
-  .map(R.view(avatarLens))
-  .chain(axiosGet)
-  .fork(console.error, console.log)
-// Image data

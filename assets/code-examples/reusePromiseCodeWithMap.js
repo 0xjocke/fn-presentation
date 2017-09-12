@@ -6,3 +6,4 @@ getNumbers()
       'doubledNumber'
     )
   )
+// [{ doubledNumber: 2 }, ...]
