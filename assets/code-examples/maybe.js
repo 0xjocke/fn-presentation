@@ -12,18 +12,18 @@ const getCompany = name =>
   )
 
 getCompany('Small multiples')
-  .map(d => d.name)
-  .map(R.toUpper)
+  .map(x => x.name)
+  .map(x => x.toUppercase())
 // Maybe.Some('SMALL MULTIPLES)
 
 getCompany('facebook')
   .map(x => x.name)
-  .map(R.toUpper)
+  .map(x => x.toUppercase())
 //Maybe.None()
 
 const upperName = R.compose(
-  R.toUpper,
-  d => d.name
+  x => x.toUppercase(),
+  x => x.name
 )
 
 getCompany('Small multiples').map(

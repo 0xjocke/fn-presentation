@@ -1296,7 +1296,7 @@ export default class Presentation extends React.Component {
               <li>
                 Which means that if you
                 want to start looking at
-                one new fucntional
+                one new functional
                 lanuge you should have a
                 big head start knowing
                 these concetps.

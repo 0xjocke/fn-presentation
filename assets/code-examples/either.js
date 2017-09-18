@@ -19,8 +19,8 @@ const invalidJson =
   '{name: "Small Multiples"}'
 
 const upperName = R.compose(
-  R.toUpper,
-  d => d.name
+  x => x.toUppercase(),
+  x => x.name
 )
 
 parseJson(json)
