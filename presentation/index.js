@@ -1085,13 +1085,6 @@ export default class Presentation extends React.Component {
                 that computation.
               </li>
               <li>
-                Make app more pure. The
-                function will always
-                return the same thing.
-                Outside caller firing
-                off side effects.
-              </li>
-              <li>
                 Another way they differ
                 is how they treat
                 exceptions. Promises
@@ -1156,32 +1149,16 @@ export default class Presentation extends React.Component {
           lang="js"
           notes={
             <ul>
+              <li>encaseP</li>
               <li>
-                encaseP takes a function
-                returning a promise and
-                return a Future instead.
+                Calling fetchF nothing
+                => fork
               </li>
               <li>
-                We use our new fetchF fn
-                to make a GET request to
-                githubs url
-              </li>
-              <li>
-                Just calling the fetchF
-                function would not do
-                anything. Do fire off
-                the future your have to
-                call fork
-              </li>
-              <li>
-                Fork, just like Either,
-                takes first an error fn
-                and then a success fn.
-              </li>
-              <li>
-                The request successful
-                We get a response object
-                back.
+                Fork, just like Eithers
+                cata, takes first an
+                error fn and then a
+                success fn.
               </li>
               <li>
                 We also want to call
@@ -1265,12 +1242,14 @@ export default class Presentation extends React.Component {
             { loc: [30, 37] },
             { loc: [38, 43] },
             {
-              loc: [44, 48],
+              loc: [44, 49],
+            },
+            { loc: [50, 56] },
+            {
+              loc: [57, 61],
               note: 'Kleisli',
             },
-            { loc: [49, 53] },
-            { loc: [54, 58] },
-            { loc: [59, 64] },
+            { loc: [62, 66] },
           ]}
         />
 

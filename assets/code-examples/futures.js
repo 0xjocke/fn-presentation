@@ -42,6 +42,19 @@ fetchF(url)
   .fork(console.error, console.log)
 // JSON
 
+fetchF(url + 'mistake')
+  .chain(toJSON)
+  .chain(handleError)
+  .fork(console.error, console.log)
+//Error: Request failed with status code 404
+
+fetchF(url)
+  .chain(toJSON)
+  .chain(handleError)
+  .map(x => x + y)
+  .fork(console.error, console.log)
+//Throws: ReferenceError: y is not defined
+
 const handleRequest = R.composeK(
   handleError,
   toJSON
@@ -51,14 +64,3 @@ fetchF(url)
   .chain(handleRequest)
   .fork(console.error, console.log)
 // JSON
-
-fetchF(url + 'mistake')
-  .chain(handleRequest)
-  .fork(console.error, console.log)
-//Error: Request failed with status code 404
-
-fetchF(url)
-  .chain(handleRequest)
-  .map(x => x + y)
-  .fork(console.error, console.log)
-//Throws: ReferenceError: y is not defined

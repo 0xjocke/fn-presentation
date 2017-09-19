@@ -120,21 +120,17 @@ export default () => [
     ranges={[
       {
         loc: [0, 1],
-        title:
-          'Lets play with promises',
+        title: `Let's play with promises`,
       },
       { loc: [0, 3] },
       {
-        loc: [4, 8],
-        note:
-          'Curried function data last',
+        loc: [4, 5],
       },
-      { loc: [5, 7] },
       {
-        loc: [8, 12],
-        note: 'One more',
+        loc: [6, 9],
+        note: `Curried function data last`,
       },
-      { loc: [12, 21] },
+      { loc: [10, 14] },
     ]}
   />,
   <CodeSlide
@@ -244,19 +240,21 @@ export default () => [
     code={codeExamples.introCompose}
     ranges={[
       {
-        loc: [0, 1],
+        loc: [0, 5],
         title:
-          "Let's define some pure fns",
+          "Let's transform some numbers",
       },
-      { loc: [1, 5] },
-      { loc: [5, 8] },
+      { loc: [6, 9] },
       {
-        loc: [9, 17],
+        loc: [10, 11],
         note:
           'How can we put these together?',
       },
-      { loc: [18, 19] },
-      { loc: [20, 25] },
+      { loc: [11, 12] },
+      { loc: [13, 17] },
+      { loc: [18, 22] },
+      { loc: [24, 25] },
+      { loc: [26, 31] },
     ]}
   />,
   <Slide
@@ -306,7 +304,7 @@ export default () => [
     code={codeExamples.compose}
     ranges={[
       {
-        loc: [0, 5],
+        loc: [0, 0],
         title: (
           <span
             style={{
@@ -317,14 +315,21 @@ export default () => [
           </span>
         ),
       },
-      { loc: [5, 12] },
+      { loc: [0, 6] },
+      { loc: [4, 5] },
+      { loc: [3, 4] },
+      { loc: [2, 3] },
+      { loc: [0, 6] },
+      { loc: [7, 8] },
+      { loc: [9, 14] },
+      { loc: [15, 16] },
       {
-        loc: [13, 17],
+        loc: [17, 21],
         note:
           'We can group for reuse or optimizations',
       },
       {
-        loc: [18, 24],
+        loc: [22, 26],
       },
     ]}
   />,

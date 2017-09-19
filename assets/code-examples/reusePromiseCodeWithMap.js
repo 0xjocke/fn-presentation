@@ -1,9 +1,5 @@
 const getNumbers = () => [1, 2, 3]
 getNumbers()
-  .map(doubleNumberIfNeeded(true))
-  .map(
-    turnNumberIntoObject(
-      'doubledNumber'
-    )
-  )
-// [{ doubledNumber: 2 }, ...]
+  .map(multiply(2))
+  .map(turnNumberIntoObject('num'))
+// [{ num: 2 }, ...]
