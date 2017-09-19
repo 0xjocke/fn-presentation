@@ -96,7 +96,14 @@ export default class Presentation extends React.Component {
             bold
           >
             Joachim Bachstätter <br />
-            <Link href="https://twitter.com/bachstatter">
+            <Link
+              style={{
+                marginTop: 20,
+                display: 'block',
+                color: '#718ec8',
+              }}
+              href="https://twitter.com/bachstatter"
+            >
               @bachstatter
             </Link>
           </Text>
@@ -1169,30 +1176,17 @@ export default class Presentation extends React.Component {
                 encaseP fn again.
               </li>
               <li>
-                But remember that
-                futures doesn't
-                automatically flattens
-                things. Returning a
-                Future inside a .map
-                would Give us nested
-                futures.
+                No automatic flatten.
+                Just like arrays.
               </li>
               <li>
-                Chain comes to the
-                rescue. chain works just
-                like map but also
-                flattens. Which is why
-                it sometimes called
-                flatMap
+                Use chain aka flatMap
               </li>
               <li>
-                If you've worked with
-                fetch you know that http
-                error will not be
-                treated like an error.
-                So lets create a helper
-                to reject the future is
-                the request fails.
+                http errors !== error.
+                Helper to reject the
+                future if the request
+                fails.
               </li>
               <li>
                 When putting it together
@@ -1257,7 +1251,7 @@ export default class Presentation extends React.Component {
           notes={
             <ul>
               <li>
-                It might feel a litttle
+                It might feel a little
                 annoying to learn this
                 api instead of just
                 using the promise api
